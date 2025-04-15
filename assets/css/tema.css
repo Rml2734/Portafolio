@@ -1,0 +1,22 @@
+/* TRABAJANDO CON EL TEMA */
+:root {
+    --primary-bg: #ffffff;
+    --primary-color: #000000;
+    --secondary-bg: #f0f0f0;
+    --secondary-color: #333333;
+    --text-color: #000000; /* Añadimos --text-color para el tema claro */
+  }
+  
+  [data-theme="dark"] {
+    --primary-bg: #181818;
+    --primary-color: #ffffff;
+    --secondary-bg: #282828;
+    --secondary-color: #cccccc;
+    --text-color: #ffffff; /* Añadimos --text-color para el tema oscuro */
+  }
+  
+  body {
+    background-color: var(--primary-bg);
+    color: var(--primary-color);
+    font-family: Arial, sans-serif;
+  }

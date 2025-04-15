@@ -1,0 +1,12 @@
+/* --- RESPONSIVE --- */
+@media (max-width: 768px) {
+    #skillset > div {
+      grid-template-columns: 1fr 1fr;
+    }
+  
+    #experience img {
+      width: 6rem;
+      height: 6rem;
+    }
+  }
+  

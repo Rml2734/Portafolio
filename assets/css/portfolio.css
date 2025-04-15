@@ -1,0 +1,150 @@
+#portfolio a { /* Cambiado a #portfolio a */
+    display: flex; /* Usamos flexbox para centrar la imagen */
+    flex-direction: column; /* Alineamos la imagen y el texto en columna */
+    align-items: center; /* Centramos verticalmente */
+    justify-content: center; /* Centramos horizontalmente */
+    position: relative;
+    margin: 1rem auto;
+    max-width: 400px;
+    overflow: hidden;
+    box-shadow: 0 0 10px var(--gray2);
+    padding: 0;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    text-decoration: none;
+    color: inherit;
+}
+
+#portfolio a:hover { /* Cambiado a #portfolio a:hover */
+    transform: scale(1.05);
+}
+
+#portfolio img {
+    display: block;
+    width: 100%; /* Cambiado para ocupar todo el ancho */
+    height: auto; /* Cambiado para ajustar proporcionalmente */
+    transition: transform 0.3s ease;
+}
+
+#portfolio a:hover img { /* Cambiado a #portfolio a:hover img */
+    transform: scale(1.1);
+}
+
+#portfolio a:before { /* Cambiado a #portfolio a:before */
+    content: '';
+    background-color: var(--primary);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    transition: opacity 0.3s ease;
+    opacity: 0;
+}
+
+#portfolio a:hover:before { /* Cambiado a #portfolio a:hover:before */
+    opacity: 0.75;
+}
+
+#portfolio h4 {
+    display: block;
+    margin: 0;
+    position: absolute;
+    z-index: 2;
+    bottom: 0%;
+    left: 50%;
+    transform: translate(-50%, 50%);
+    color: var(--white);
+    opacity: 0;
+    transition: bottom 0.3s ease, opacity 0.3s ease;
+    text-align: center;
+    padding: 0 10px;
+}
+
+#portfolio a:hover h4 { /* Cambiado a #portfolio a:hover h4 */
+    bottom: 30%;
+    opacity: 1;
+}
+
+#portfolio a:after { /* Cambiado a #portfolio a:after */
+    content: url('../img/icons/zoom.svg');
+    width: 50%;
+    position: absolute;
+    z-index: 2;
+    left: 50%;
+    top: 0%;
+    transform: translate(-40%, -50%);
+    opacity: 0;
+    transition: top 0.3s ease, opacity 0.3s ease;
+}
+
+#portfolio a:hover:after { /* Cambiado a #portfolio a:hover:after */
+    top: 40%;
+    opacity: 0.75;
+}
+
+/* Estilos adicionales para la descripción de la API */
+#portfolio a[data-description] { /* Cambiado a #portfolio a[data-description] */
+    cursor: pointer;
+}
+
+#portfolio a[data-description]:after { /* Cambiado a #portfolio a[data-description]:after */
+    content: url('../img/icons/info.svg');
+    width: 30px;
+}
+
+#portfolio a[data-description]:hover:after { /* Cambiado a #portfolio a[data-description]:hover:after */
+    opacity: 1;
+}
+
+/* Estilos para los tooltips */
+.tooltip {
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.9); /* Cambiado el color de fondo a negro con opacidad */
+    color: #fff; /* Cambiado el color del texto a blanco */
+    padding: 10px 15px; /* Ajustado el relleno */
+    border-radius: 5px; /* Agregado bordes redondeados */
+    display: none;
+    z-index: 1000;
+    max-width: 300px; /* Ajustado el ancho máximo */
+    font-size: 14px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Agregada sombra */
+    transition: opacity 0.3s ease, transform 0.3s ease; /* Agregada transición para animación */
+    transform: translateY(10px); /* Desplazamiento inicial para animación */
+    opacity: 0; /* Opacidad inicial para animación */
+}
+
+.tooltip.show {
+    opacity: 1; /* Opacidad final para animación */
+    transform: translateY(0); /* Desplazamiento final para animación */
+}
+
+.tooltip::before {
+    content: '';
+    position: absolute;
+    top: -8px; /* Ajustada la posición de la flecha */
+    left: 15px; /* Ajustada la posición de la flecha */
+    border-width: 0 8px 8px 8px; /* Ajustado el tamaño de la flecha */
+    border-style: solid;
+    border-color: transparent transparent rgba(0, 0, 0, 0.9) transparent; /* Ajustado el color de la flecha */
+}
+
+/* Estilos para el tema claro */
+[data-theme="light"] .tooltip {
+    color: #333; /* Cambiado el color del texto a gris oscuro */
+    background-color: rgba(255, 255, 255, 0.9); /* Cambiado el color de fondo a blanco con opacidad */
+}
+
+[data-theme="light"] .tooltip::before {
+    border-color: transparent transparent rgba(255, 255, 255, 0.9) transparent; /* Ajustado el color de la flecha */
+}
+
+/* Estilos para pantallas pequeñas */
+@media (max-width: 600px) {
+    .tooltip {
+        max-width: 90%; /* Ajustado el ancho máximo para pantallas pequeñas */
+        font-size: 12px; /* Ajustado el tamaño de la fuente para pantallas pequeñas */
+    }
+}
