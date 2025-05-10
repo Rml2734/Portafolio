@@ -5,7 +5,8 @@
     justify-content: center; /* Centramos horizontalmente */
     position: relative;
     margin: 1rem auto;
-    max-width: 400px;
+    width: calc(50% - 1rem); /* Dos proyectos por fila en pantallas medianas y grandes */
+    max-width: 300px;
     overflow: hidden;
     box-shadow: 0 0 10px var(--gray2);
     padding: 0;
@@ -64,7 +65,7 @@
 }
 
 #portfolio a:hover h4 { /* Cambiado a #portfolio a:hover h4 */
-    bottom: 30%;
+    bottom: 20%;
     opacity: 1;
 }
 
@@ -97,6 +98,12 @@
 
 #portfolio a[data-description]:hover:after { /* Cambiado a #portfolio a[data-description]:hover:after */
     opacity: 1;
+}
+
+@media (max-width: 768px) {
+    #portfolio a {
+        width: 100%; /* Un proyecto por fila en pantallas pequeñas */
+    }
 }
 
 /* Estilos para los tooltips */
